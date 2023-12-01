@@ -2,13 +2,8 @@
 	--bg: #1f2028;
 	--text: #ffffff;
 	--text-secondary: #a9adc1;
-	--border-grd1: #6c6499;
-	--border-grd2: #111222;
-	--card-grd1: #1f193d;
-	--card-grd2: #05060d;
-	--radial-center: rgba(173, 155, 255, 0.3);
-	--radial-edge: rgba(11, 12, 22, 0.3);
-	--shadow: rgba(173, 155, 255, 0.5);
+	--border: hsl(333, 64%, 56%);
+	/* --border: #545496; */
 	--font1: font1;
 	--font2: font2;
 }

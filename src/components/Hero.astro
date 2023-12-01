@@ -5,11 +5,13 @@ import { Github, Linkedin, Twitter } from 'simple-icons-astro';
 <div class='wrapper'>
 	<!-- Hero Header -->
 	<div class='hero__header'>
-		<div class='avatar'>
-			<img
-				src='/images/profile.webp'
-				alt='maaz'
-			/>
+		<div class='avatar__wrapper'>
+			<div class='avatar'>
+				<img
+					src='/images/profile.webp'
+					alt='maaz'
+				/>
+			</div>
 		</div>
 		<div class='hero__title'>
 			<h1>Mohammed Ali Maaz</h1>
@@ -18,13 +20,10 @@ import { Github, Linkedin, Twitter } from 'simple-icons-astro';
 	</div>
 
 	<!-- Description -->
-	<div class='hero__desc'>
-		<p>
-			Welcome to my digital garden where I share what I'm learning about
-			shipping great products, becoming a better developer and growing a career
-			in tech.
-		</p>
-	</div>
+	<p class='hero__desc'>
+		Welcome to my digital garden where I share what I'm learning about shipping
+		great products, becoming a better developer and growing a career in tech.
+	</p>
 	<!-- Socials -->
 	<div class='links'>
 		<a
@@ -64,11 +63,13 @@ import { Github, Linkedin, Twitter } from 'simple-icons-astro';
 		flex-direction: column;
 		gap: 3rem;
 	}
+	/* HERO HEADER */
 	.hero__header {
 		display: flex;
 		align-items: center;
 		gap: 2rem;
 	}
+	/* HERO TITLE */
 	.hero__title h1 {
 		font-size: 2.25rem;
 		font-weight: normal;
@@ -77,12 +78,22 @@ import { Github, Linkedin, Twitter } from 'simple-icons-astro';
 	.hero__title p {
 		color: var(--text-secondary);
 	}
+	/* AVATAR */
+	.avatar__wrapper {
+		width: 5.75rem;
+		aspect-ratio: 1/1;
+		background-color: hsla(0, 0%, 100%, 0.066);
+		border-radius: 50%;
+		display: grid;
+		place-items: center;
+		backdrop-filter: blur(100px);
+	}
 	.avatar {
 		width: 5rem;
 		aspect-ratio: 1/1;
 		border-radius: 50%;
 		padding: 10px;
-		border: 2px solid var(--text);
+		border: 0.25rem solid var(--border);
 		display: grid;
 		place-items: center;
 	}
@@ -90,30 +101,39 @@ import { Github, Linkedin, Twitter } from 'simple-icons-astro';
 		width: 100%;
 	}
 
+	/* HERO DESC */
 	.hero__desc {
 		font-size: 1.25rem;
 	}
 
+	/* SOCIALS LINKS */
 	.links {
 		display: flex;
 		align-items: center;
-		gap: 1rem;
+		gap: 1.5rem;
 	}
 
 	.icons {
 		display: flex;
 		align-items: center;
-		gap: 0.3rem;
+		gap: 0.5rem;
 		justify-content: center;
 		font-weight: 600;
 	}
 
+	/* MEDIA */
 	@media (max-width: 600px) {
 		.hero__header {
 			gap: 1rem;
 		}
 		.hero__title h1 {
-			font-size: 1.2rem;
+			font-size: 1.7rem;
+		}
+		.hero__title p {
+			font-size: 1rem;
+		}
+		.icons {
+			flex-direction: column;
 		}
 	}
 </style>
