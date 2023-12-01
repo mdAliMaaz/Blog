@@ -1,5 +1,5 @@
 ---
-
+import { Github, Linkedin, Twitter } from 'simple-icons-astro';
 ---
 
 <div class='wrapper'>
@@ -26,6 +26,35 @@
 		</p>
 	</div>
 	<!-- Socials -->
+	<div class='links'>
+		<a
+			href='https://twitter.com/MdMaaz2907'
+			target='_blank'
+		>
+			<div class='icons'>
+				<Twitter />
+				 Twitter
+			</div>
+		</a>
+		<a
+			href='https://www.linkedin.com/in/mohammed-ali-maaz-26962828b/'
+			target='_blank'
+		>
+			<div class='icons'>
+				<Linkedin />
+				 LinkedIn
+			</div>
+		</a>
+		<a
+			href='https://github.com/mdAliMaaz'
+			target='_blank'
+		>
+			<div class='icons'>
+				<Github />
+				 Github
+			</div>
+		</a>
+	</div>
 </div>
 
 <style>
@@ -80,9 +109,6 @@
 		gap: 0.5rem;
 		justify-content: center;
 		font-weight: 600;
-	}
-	.icon {
-		font-size: 1.5rem;
 	}
 
 	@media (max-width: 600px) {
