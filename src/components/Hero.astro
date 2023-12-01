@@ -1,0 +1,72 @@
+---
+
+---
+
+<div class='wrapper'>
+	<!-- Hero Header -->
+	<div class='hero__header'>
+		<div class='avatar'>
+			<img
+				src='/images/profile.webp'
+				alt='maaz'
+			/>
+		</div>
+		<div class='hero__title'>
+			<h1>Mohammed Ali Maaz</h1>
+			<p>Full Stack developer</p>
+		</div>
+	</div>
+
+	<!-- Description -->
+	<div class='hero__desc'>
+		<p>
+			Welcome to my digital garden where I share what I'm learning about
+			shipping great products, becoming a better developer and growing a career
+			in tech.
+		</p>
+	</div>
+	<!-- Socials -->
+	<div>
+		<a href=''>Twitter</a>
+		<a href=''>LinkedIn</a>
+		<a href=''>GitHub</a>
+	</div>
+</div>
+
+<style>
+	.wrapper {
+		padding: 12rem 0.5rem;
+		display: flex;
+		flex-direction: column;
+		gap: 3rem;
+	}
+	.hero__header {
+		display: flex;
+		align-items: center;
+		gap: 2.25rem;
+	}
+	.hero__title h1 {
+		font-size: 2.25rem;
+		font-weight: normal;
+		font-family: var(--font2);
+	}
+	.hero__title p {
+		color: var(--text-secondary);
+	}
+	.avatar {
+		width: 5rem;
+		height: 5rem;
+		border-radius: 50%;
+		padding: 10px;
+		border: 2px solid var(--border-grd2);
+		display: grid;
+		place-items: center;
+	}
+	.avatar img {
+		width: 100%;
+	}
+
+	.hero__desc {
+		font-size: 1.25rem;
+	}
+</style>
