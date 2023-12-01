@@ -1,5 +1,5 @@
 ---
-import { Github, Linkedin, Twitter } from 'simple-icons-astro';
+import { Github, Linkedin, Twitter, Googlemessages } from 'simple-icons-astro';
 ---
 
 <div class='wrapper'>
@@ -15,7 +15,7 @@ import { Github, Linkedin, Twitter } from 'simple-icons-astro';
 		</div>
 		<div class='hero__title'>
 			<h1>Mohammed Ali Maaz</h1>
-			<p>Full Stack developer</p>
+			<p>Full Stack developer.</p>
 		</div>
 	</div>
 
@@ -27,12 +27,21 @@ import { Github, Linkedin, Twitter } from 'simple-icons-astro';
 	<!-- Socials -->
 	<div class='links'>
 		<a
+			href='#'
+			target='_blank'
+		>
+			<div class='icons'>
+				<Googlemessages />
+				<span> Github</span>
+			</div>
+		</a>
+		<a
 			href='https://twitter.com/MdMaaz2907'
 			target='_blank'
 		>
 			<div class='icons'>
-				<Twitter />
-				 Twitter
+				<Twitter class='icon' />
+				<span> Twitter</span>
 			</div>
 		</a>
 		<a
@@ -41,7 +50,7 @@ import { Github, Linkedin, Twitter } from 'simple-icons-astro';
 		>
 			<div class='icons'>
 				<Linkedin />
-				 LinkedIn
+				<span> LinkedIn</span>
 			</div>
 		</a>
 		<a
@@ -50,7 +59,7 @@ import { Github, Linkedin, Twitter } from 'simple-icons-astro';
 		>
 			<div class='icons'>
 				<Github />
-				 Github
+				<span> Github</span>
 			</div>
 		</a>
 	</div>
@@ -80,7 +89,7 @@ import { Github, Linkedin, Twitter } from 'simple-icons-astro';
 	}
 	/* AVATAR */
 	.avatar__wrapper {
-		width: 5.75rem;
+		width: 6rem;
 		aspect-ratio: 1/1;
 		background-color: hsla(0, 0%, 100%, 0.066);
 		border-radius: 50%;
@@ -96,6 +105,8 @@ import { Github, Linkedin, Twitter } from 'simple-icons-astro';
 		border: 0.25rem solid var(--border);
 		display: grid;
 		place-items: center;
+		backdrop-filter: blur(100px);
+		box-shadow: 0 0 6px rgba(255, 255, 255, 0.641);
 	}
 	.avatar img {
 		width: 100%;
@@ -121,6 +132,22 @@ import { Github, Linkedin, Twitter } from 'simple-icons-astro';
 		font-weight: 600;
 	}
 
+	.icons > span {
+		color: var(--text-secondary);
+	}
+	.icons > svg {
+		padding: 3px;
+		border-radius: 3px;
+		transition: all 0.2s linear;
+		color: var(--text-secondary);
+	}
+
+	.icons:hover > svg {
+		background-color: var(--border);
+		box-shadow: 0 5px 5px var(--text-shadow);
+		transform: scale(1.2);
+		color: var(--text);
+	}
 	/* MEDIA */
 	@media (max-width: 600px) {
 		.hero__header {
