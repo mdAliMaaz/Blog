@@ -1,5 +1,7 @@
 ---
-
+import { FaSquareXTwitter } from 'react-icons/fa6';
+import { FaLinkedin } from 'react-icons/fa';
+import { FaGithubSquare } from 'react-icons/fa';
 ---
 
 <div class='wrapper'>
@@ -26,10 +28,22 @@
 		</p>
 	</div>
 	<!-- Socials -->
-	<div>
-		<a href=''>Twitter</a>
-		<a href=''>LinkedIn</a>
-		<a href=''>GitHub</a>
+	<div class='links'>
+		<a href=''>
+			<div class='icons'>
+				<FaSquareXTwitter className='icon' />Twitter
+			</div>
+		</a>
+		<a href=''>
+			<div class='icons'>
+				<FaLinkedin className='icon' />LinkedIn
+			</div>
+		</a>
+		<a href=''>
+			<div class='icons'>
+				<FaGithubSquare className='icon' />Github
+			</div>
+		</a>
 	</div>
 </div>
 
@@ -55,7 +69,7 @@
 	}
 	.avatar {
 		width: 5rem;
-		height: 5rem;
+		aspect-ratio: 1/1;
 		border-radius: 50%;
 		padding: 10px;
 		border: 2px solid var(--border-grd2);
@@ -68,5 +82,21 @@
 
 	.hero__desc {
 		font-size: 1.25rem;
+	}
+
+	.links {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	.icons {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		justify-content: center;
+	}
+	.icon {
+		font-size: 1.5rem;
 	}
 </style>
