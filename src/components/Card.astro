@@ -1,0 +1,43 @@
+---
+const { date, title, description, url } = Astro.props;
+---
+
+<a href={url}>
+	<div class='card__wrapper'>
+		<h3 class='card__title'>{title}</h3>
+		<div class='card__description'>
+			<span>{date}</span>
+			<span>{description}</span>
+		</div>
+	</div>
+</a>
+
+<style>
+	.card__wrapper {
+		background-color: rgb(255, 255, 255, 0.1);
+		padding: 1em;
+		border-radius: 1rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		gap: 1rem;
+		backdrop-filter: blur(10px);
+		transition: all 0.4s linear;
+	}
+
+	.card__wrapper:hover {
+		background-color: rgb(255, 255, 255, 0.2);
+	}
+
+	.card__title {
+		font-weight: normal;
+		font-size: 1.2rem;
+	}
+
+	.card__description {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		color: var(--text-secondary);
+	}
+</style>

@@ -1,0 +1,70 @@
+---
+import '../styles/global.css';
+const { frontmatter } = Astro.props;
+import Navbar from '../components/Navbar.astro';
+---
+
+<!doctype html>
+<html lang='en'>
+	<head>
+		<meta charset='UTF-8' />
+		<meta
+			name='description'
+			content={frontmatter.description}
+		/>
+		<meta
+			name='viewport'
+			content='width=device-width'
+		/>
+		<link
+			rel='icon'
+			type='image/svg+xml'
+			href='/favicon.svg'
+		/>
+		<meta
+			name='generator'
+			content={Astro.generator}
+		/>
+		<title>{frontmatter.title}</title>
+	</head>
+	<body>
+		<Navbar />
+		<main>
+			<div class='wrapper'>
+				<div>
+					<h1 class='title'>{frontmatter.title}</h1>
+					<div class='description'>
+						<span>{frontmatter.pubDate}</span>
+					</div>
+				</div>
+			</div>
+			<slot />
+		</main>
+	</body>
+</html>
+
+<style>
+	main {
+		max-width: 40rem;
+		margin: 0 auto;
+		padding: 6px;
+		color: var(--text);
+	}
+	pre {
+		overflow: auto;
+	}
+	.wrapper {
+		padding: 12rem 0 2rem 0;
+	}
+	.title {
+		font-size: 1.875;
+		color: var(--text-secondary);
+		font-weight: 500;
+		line-height: 1.2;
+	}
+	.description {
+		font-size: 1rem;
+		color: var(--text-secondary);
+		padding: 1rem 0 1rem 0;
+	}
+</style>
