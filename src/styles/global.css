@@ -1,6 +1,6 @@
 :root {
 	--bg: #1f2028;
-	--text: #ffffff;
+	--text: hsla(0, 0%, 100%, 0.922);
 	--text-secondary: #a9adc1;
 	--text-dark: #645f59;
 	--border: hsl(333, 64%, 56%);
@@ -38,6 +38,9 @@ body {
 	width: 100%;
 }
 
+body ::selection {
+	background-color: var(--border);
+}
 a {
 	text-decoration: none;
 	color: var(--text);
