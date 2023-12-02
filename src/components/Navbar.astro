@@ -3,7 +3,7 @@ import Logo from './Logo.astro';
 import Link from './Link.astro';
 ---
 
-<header>
+<header id='navbar'>
 	<nav class='navbar'>
 		<div>
 			<Logo />
@@ -20,7 +20,11 @@ import Link from './Link.astro';
 </header>
 
 <style>
+	.show {
+		display: block;
+	}
 	header {
+		display: none;
 		max-width: 40rem;
 		position: fixed;
 		width: 100%;
@@ -32,6 +36,7 @@ import Link from './Link.astro';
 		border-radius: 1rem;
 		padding: 10px;
 		z-index: 10;
+		animation: navbarAnimation 0.4s ease-in;
 	}
 	.navbar {
 		display: flex;
@@ -44,4 +49,27 @@ import Link from './Link.astro';
 		align-items: center;
 		gap: 1rem;
 	}
+
+	@keyframes navbarAnimation {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
 </style>
+
+<script>
+	window.addEventListener('scroll', (e) => {
+		const navbar = document.getElementById('navbar');
+
+		const scrollValue = Math.round(window.scrollY);
+
+		if (scrollValue > 250) {
+			navbar?.classList.add('show');
+		} else {
+			navbar?.classList.remove('show');
+		}
+	});
+</script>
