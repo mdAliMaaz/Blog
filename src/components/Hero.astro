@@ -32,7 +32,7 @@ import { Github, Linkedin, Twitter, Googlemessages } from 'simple-icons-astro';
 		>
 			<div class='icons'>
 				<Googlemessages />
-				<span> Github</span>
+				<span>Posts</span>
 			</div>
 		</a>
 		<a
@@ -154,13 +154,27 @@ import { Github, Linkedin, Twitter, Googlemessages } from 'simple-icons-astro';
 			gap: 1rem;
 		}
 		.hero__title h1 {
-			font-size: 1.7rem;
+			font-size: 1.5rem;
 		}
 		.hero__title p {
 			font-size: 1rem;
 		}
 		.icons {
 			flex-direction: column;
+		}
+	}
+	@media (max-width: 300px) {
+		.hero__title h1 {
+			font-size: 1.2rem;
+		}
+		.hero__title p {
+			font-size: 0.8rem;
+		}
+		.icons {
+			flex-direction: column;
+		}
+		.links {
+			gap: 0.5rem;
 		}
 	}
 </style>
