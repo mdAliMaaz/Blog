@@ -1,0 +1,47 @@
+---
+import Logo from './Logo.astro';
+import Link from './Link.astro';
+---
+
+<header>
+	<nav class='navbar'>
+		<div>
+			<Logo />
+		</div>
+		<div>
+			<div class='links'>
+				<Link title='Posts' />
+				<Link title='Twitter' />
+				<Link title='LinkedIn' />
+				<Link title='Github' />
+			</div>
+		</div>
+	</nav>
+</header>
+
+<style>
+	header {
+		max-width: 40rem;
+		position: fixed;
+		width: 100%;
+		left: 50%;
+		top: 8%;
+		transform: translate(-50%, -50%);
+		background: rgb(255, 255, 255, 0.1);
+		backdrop-filter: blur(30px);
+		border-radius: 1rem;
+		padding: 10px;
+		z-index: 10;
+	}
+	.navbar {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+	.links {
+		flex: 1;
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+	}
+</style>

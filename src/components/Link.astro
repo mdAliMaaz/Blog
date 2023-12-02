@@ -1,0 +1,52 @@
+---
+const { icon, title } = Astro.props;
+import { Github, Linkedin, Twitter, Googlemessages } from 'simple-icons-astro';
+---
+
+<a
+	href='#'
+	target='_blank'
+>
+	<div class='icons'>
+		{title === 'Posts' && <Googlemessages />}
+		{title === 'Twitter' && <Twitter />}
+		{title === 'LinkedIn' && <Linkedin />}
+		{title === 'Github' && <Github />}
+		<span>{title}</span>
+	</div>
+</a>
+
+<style>
+	.icons {
+		display: flex;
+		align-items: center;
+		gap: 0.1rem;
+		font-weight: 600;
+	}
+
+	.icons > span {
+		color: var(--text-secondary);
+	}
+	.icons > svg {
+		padding: 3px;
+		border-radius: 3px;
+		transition: all 0.2s linear;
+		color: var(--text-secondary);
+	}
+
+	.icons:hover > svg {
+		background-color: var(--border);
+		box-shadow: 0 5px 5px var(--text-shadow);
+		transform: scale(1.2);
+		color: var(--text);
+	}
+
+	@media (max-width: 400px) {
+		.icons {
+			flex-direction: column;
+		}
+		.icons span {
+			font-size: 0.7rem;
+		}
+	}
+</style>
