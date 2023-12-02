@@ -1,24 +1,19 @@
 ---
 import { Github, Linkedin, Twitter, Googlemessages } from 'simple-icons-astro';
+import Logo from './Logo.astro';
 ---
 
 <div class='wrapper'>
 	<!-- Hero Header -->
 	<div class='hero__header'>
 		<div class='avatar__wrapper'>
-			<div class='avatar'>
-				<img
-					src='/images/profile.webp'
-					alt='maaz'
-				/>
-			</div>
+			<Logo />
 		</div>
 		<div class='hero__title'>
 			<h1>Mohammed Ali Maaz</h1>
 			<p>Full Stack developer.</p>
 		</div>
 	</div>
-
 	<!-- Description -->
 	<p class='hero__desc'>
 		Welcome to my digital garden where I share what I'm learning about shipping
@@ -96,20 +91,6 @@ import { Github, Linkedin, Twitter, Googlemessages } from 'simple-icons-astro';
 		display: grid;
 		place-items: center;
 		backdrop-filter: blur(100px);
-	}
-	.avatar {
-		width: 5rem;
-		aspect-ratio: 1/1;
-		border-radius: 50%;
-		padding: 10px;
-		border: 0.25rem solid var(--border);
-		display: grid;
-		place-items: center;
-		backdrop-filter: blur(100px);
-		box-shadow: 0 0 6px rgba(255, 255, 255, 0.641);
-	}
-	.avatar img {
-		width: 100%;
 	}
 
 	/* HERO DESC */
