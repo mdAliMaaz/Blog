@@ -59,10 +59,11 @@ import Link from './Link.astro';
 	.avatar__wrapper {
 		width: 6rem;
 		aspect-ratio: 1/1;
-		background-color: hsla(0, 0%, 100%, 0.066);
+		background-color: hsla(0, 0%, 100%, 0.349);
 		border-radius: 50%;
 		display: grid;
 		place-items: center;
+		padding: 0.3rem;
 	}
 	.avatar {
 		aspect-ratio: 1/1;
@@ -72,7 +73,6 @@ import Link from './Link.astro';
 		display: grid;
 		place-items: center;
 		backdrop-filter: blur(100px);
-		box-shadow: 0 0 6px rgba(255, 255, 255, 0.641);
 		cursor: pointer;
 		transition: all 0.4s ease-out;
 	}
@@ -81,7 +81,7 @@ import Link from './Link.astro';
 		object-fit: contain;
 	}
 	.avatar:hover {
-		box-shadow: 0 5px 10px var(--text);
+		box-shadow: 0 1px 6px 5px var(--border);
 	}
 	/* HERO DESC */
 	.hero__desc {
