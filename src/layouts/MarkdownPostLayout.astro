@@ -2,6 +2,7 @@
 import '../styles/global.css';
 const { frontmatter } = Astro.props;
 import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
 ---
 
 <!doctype html>
@@ -39,6 +40,7 @@ import Navbar from '../components/Navbar.astro';
 				</div>
 			</div>
 			<slot />
+			<Footer />
 		</main>
 	</body>
 </html>
@@ -50,7 +52,7 @@ import Navbar from '../components/Navbar.astro';
 		color: var(--text);
 		font-size: 1.1rem;
 		color: var(--text);
-		padding: 1rem 0;
+		padding: 1rem 0.7rem;
 	}
 	pre {
 		overflow: auto;
