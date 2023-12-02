@@ -1,13 +1,17 @@
 ---
-import { Github, Linkedin, Twitter, Googlemessages } from 'simple-icons-astro';
-import Logo from './Logo.astro';
+import Link from './Link.astro';
 ---
 
 <div class='wrapper'>
 	<!-- Hero Header -->
 	<div class='hero__header'>
 		<div class='avatar__wrapper'>
-			<Logo />
+			<div class='avatar'>
+				<img
+					src='/images/profile.webp'
+					alt='maaz'
+				/>
+			</div>
 		</div>
 		<div class='hero__title'>
 			<h1>Mohammed Ali Maaz</h1>
@@ -21,45 +25,14 @@ import Logo from './Logo.astro';
 	</p>
 	<!-- Socials -->
 	<div class='links'>
-		<a
-			href='#'
-			target='_blank'
-		>
-			<div class='icons'>
-				<Googlemessages />
-				<span>Posts</span>
-			</div>
-		</a>
-		<a
-			href='https://twitter.com/MdMaaz2907'
-			target='_blank'
-		>
-			<div class='icons'>
-				<Twitter class='icon' />
-				<span> Twitter</span>
-			</div>
-		</a>
-		<a
-			href='https://www.linkedin.com/in/mohammed-ali-maaz-26962828b/'
-			target='_blank'
-		>
-			<div class='icons'>
-				<Linkedin />
-				<span> LinkedIn</span>
-			</div>
-		</a>
-		<a
-			href='https://github.com/mdAliMaaz'
-			target='_blank'
-		>
-			<div class='icons'>
-				<Github />
-				<span> Github</span>
-			</div>
-		</a>
+		<Link title='Posts' />
+		<Link title='Twitter' />
+		<Link title='LinkedIn' />
+		<Link title='Github' />
 	</div>
 </div>
 
+<!-- Styles -->
 <style>
 	.wrapper {
 		padding: 12rem 0.5rem;
@@ -90,9 +63,26 @@ import Logo from './Logo.astro';
 		border-radius: 50%;
 		display: grid;
 		place-items: center;
-		backdrop-filter: blur(100px);
 	}
-
+	.avatar {
+		aspect-ratio: 1/1;
+		border-radius: 50%;
+		padding: 10px;
+		border: 0.25rem solid var(--border);
+		display: grid;
+		place-items: center;
+		backdrop-filter: blur(100px);
+		box-shadow: 0 0 6px rgba(255, 255, 255, 0.641);
+		cursor: pointer;
+		transition: all 0.4s ease-out;
+	}
+	.avatar img {
+		width: 100%;
+		object-fit: contain;
+	}
+	.avatar:hover {
+		box-shadow: 0 5px 10px var(--text);
+	}
 	/* HERO DESC */
 	.hero__desc {
 		font-size: 1.25rem;
@@ -151,11 +141,9 @@ import Logo from './Logo.astro';
 		.hero__title p {
 			font-size: 0.8rem;
 		}
-		.icons {
-			flex-direction: column;
-		}
+
 		.links {
-			gap: 0.5rem;
+			gap: 0.2rem;
 		}
 	}
 </style>
