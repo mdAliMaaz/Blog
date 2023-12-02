@@ -1,0 +1,52 @@
+---
+
+---
+
+<footer>
+	<div class='footer__links'>
+		<a href='https://www.linkedin.com/in/mohammed-ali-maaz-26962828b/'
+			>LinkedIn</a
+		>
+		<a href='https://twitter.com/MdMaaz2907'>Twitter</a>
+		<a href='https://github.com/mdAliMaaz'>Github</a>
+	</div>
+	<div>
+		<p class='footer__desc'>
+			Built with
+			<a href='https://astro.build/'> Astro,</a>
+			<a href='https://mdxjs.com/'> MDX</a>
+			 and
+			<a href='https://developer.mozilla.org/en-US/docs/Web/CSS'> CSS</a>
+		</p>
+	</div>
+</footer>
+
+<style>
+	footer {
+		padding: 12rem 0.5rem 6rem 0.5rem;
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+		color: var(--text-dark);
+		font-size: 1.3rem;
+	}
+	.footer__links {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+	}
+	.footer__links > a {
+		color: var(--text-secondary);
+		transition: all 0.4s linear;
+	}
+
+	footer a:hover {
+		text-decoration: underline;
+		color: var(--border);
+		text-shadow: 1px 0 1px 1px white;
+	}
+	.footer__desc > * {
+		color: var(--text-dark);
+		transition: all 0.4s linear;
+	}
+</style>

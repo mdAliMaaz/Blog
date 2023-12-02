@@ -1,10 +1,10 @@
 ---
-const { icon, title } = Astro.props;
+const { url, title } = Astro.props;
 import { Github, Linkedin, Twitter, Googlemessages } from 'simple-icons-astro';
 ---
 
 <a
-	href='#'
+	href={url}
 	target='_blank'
 >
 	<div class='icons'>
