@@ -3,10 +3,7 @@ const { url, title } = Astro.props;
 import { Github, Linkedin, Twitter, Googlemessages } from 'simple-icons-astro';
 ---
 
-<a
-	href={url}
-	target='_blank'
->
+<a href={url}>
 	<div class='icons'>
 		{title === 'Posts' && <Googlemessages />}
 		{title === 'Twitter' && <Twitter />}

@@ -1,13 +1,10 @@
 ---
-import Hero from '../components/Hero.astro';
-import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
-
+import Layout from '../layouts/Layout.astro';
 const allPosts = await Astro.glob('./posts/*.mdx');
 ---
 
-<Layout title='Maaz | Developer'>
-	<Hero />
+<Layout title='Maaz |Posts'>
 	<div class='card__wrapper'>
 		{
 			allPosts.map((item) => (
@@ -24,6 +21,7 @@ const allPosts = await Astro.glob('./posts/*.mdx');
 
 <style>
 	.card__wrapper {
+		margin-top: 12rem;
 		display: flex;
 		flex-direction: column;
 		gap: 1rem;

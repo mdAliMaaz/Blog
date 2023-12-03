@@ -1,4 +1,38 @@
 :root {
+	--color-white: #fff;
+	--color-black: #161a1d;
+
+	--color-gray-50: #f9fafb;
+	--color-gray-100: #f3f4f6;
+	--color-gray-200: #e5e7eb;
+	--color-gray-300: #d1d5db;
+	--color-gray-400: #9ca3af;
+	--color-gray-500: #6b7280;
+	--color-gray-600: #4b5563;
+	--color-gray-700: #374151;
+	--color-gray-800: #1f2937;
+	--color-gray-900: #111827;
+
+	--color-blue: hsl(200, 100%, 50%);
+	--color-blue-hsl: 200, 100%, 50%;
+	--color-blue-light: hsl(200, 100%, 75%);
+	--color-blue-dark: hsl(200, 100%, 30%);
+	--color-blue-dark-hsl: 200, 100%, 30%;
+	--color-green: hsl(158, 78%, 42%);
+	--color-green-dark: hsl(158, 78%, 22%);
+	--color-orange: hsl(21, 100%, 60%);
+	--color-orange-dark: hsl(21, 100%, 40%);
+	--color-purple-hover: hsl(269, 79%, 84%);
+	--color-purple: hsl(269, 79%, 74%);
+	--color-purple-dark-hover: hsl(269, 79%, 54%);
+	--color-purple-dark: hsl(269, 79%, 44%);
+	--color-red: hsl(350, 100%, 54%);
+	--color-red-dark: hsl(350, 100%, 44%);
+	--color-yellow: hsl(41, 100%, 58%);
+	--color-yellow-dark: hsl(41, 100%, 38%);
+}
+
+:root {
 	--bg: #1f2028;
 	--text: hsla(0, 0%, 100%, 0.922);
 	--text-secondary: #a9adc1;
@@ -7,6 +41,9 @@
 	--text-shadow: hsl(333, 84%, 78%);
 	--font1: font1;
 	--font2: font2;
+	--theme-tangent-bg: var(--color-blue-ligh);
+	--theme-tangent-border: var(--color-gray-300);
+	--theme-tangent-code-inline-bg: var(--color-gray-400);
 }
 
 @font-face {
