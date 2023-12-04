@@ -1,10 +1,10 @@
 ---
-import Card from '../components/Card.astro';
-import Layout from '../layouts/Layout.astro';
-const allPosts = await Astro.glob('./posts/*.mdx');
+import Card from '../components/Card.astro'
+import Layout from '../layouts/Layout.astro'
+const allPosts = await Astro.glob('./posts/*.mdx')
 ---
 
-<Layout title='Maaz |Posts'>
+<Layout title='Maaz | Posts'>
 	<div class='card__wrapper'>
 		{
 			allPosts.map((item) => (

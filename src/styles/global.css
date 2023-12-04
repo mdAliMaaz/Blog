@@ -107,8 +107,20 @@ h5,
 h6 {
 	overflow-wrap: break-word;
 }
+pre {
+	padding: 1rem;
+	border-radius: 0.5rem;
+	margin: 0.5rem;
+}
 
 #root,
 #__next {
 	isolation: isolate;
+}
+
+@media (max-width: 600px) {
+	pre {
+		padding: 0.5rem;
+		margin: 0.5rem 0;
+	}
 }
