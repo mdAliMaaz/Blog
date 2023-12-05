@@ -1,9 +1,9 @@
 ---
-const { date, title, description, url } = Astro.props;
+const { date, title, description, url } = Astro.props
 ---
 
 <a href={url}>
-	<div class='card__wrapper'>
+	<div class='container'>
 		<h3 class='card__title'>{title}</h3>
 		<div class='card__description'>
 			<span>{date}</span>
@@ -13,7 +13,7 @@ const { date, title, description, url } = Astro.props;
 </a>
 
 <style>
-	.card__wrapper {
+	.container {
 		background-color: rgb(255, 255, 255, 0.1);
 		padding: 1em;
 		border-radius: 1rem;
@@ -27,7 +27,7 @@ const { date, title, description, url } = Astro.props;
 		overflow: auto;
 	}
 
-	.card__wrapper:hover {
+	.container:hover {
 		background-color: rgb(255, 255, 255, 0.2);
 	}
 

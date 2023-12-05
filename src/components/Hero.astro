@@ -1,8 +1,8 @@
 ---
-import Link from './Link.astro';
+import Link from './Link.astro'
 ---
 
-<div class='wrapper'>
+<div class='container'>
 	<!-- Hero Header -->
 	<div class='hero__header'>
 		<div class='avatar__wrapper'>
@@ -20,8 +20,9 @@ import Link from './Link.astro';
 	</div>
 	<!-- Description -->
 	<p class='hero__desc'>
-		Welcome to my digital garden where I share what I'm learning about shipping
-		great products, becoming a better developer and growing a career in tech.
+		Welcome to my digital garden where I share what I'm learning about
+		shipping great products, becoming a better developer and growing a career
+		in tech.
 	</p>
 	<!-- Socials -->
 	<div class='links'>
@@ -46,7 +47,7 @@ import Link from './Link.astro';
 
 <!-- Styles -->
 <style>
-	.wrapper {
+	.container {
 		padding: 12rem 0.5rem 6rem 0.5rem;
 		display: flex;
 		flex-direction: column;
@@ -131,6 +132,7 @@ import Link from './Link.astro';
 		transform: scale(1.2);
 		color: var(--text);
 	}
+
 	/* MEDIA */
 	@media (max-width: 600px) {
 		.hero__header {
@@ -146,6 +148,7 @@ import Link from './Link.astro';
 			flex-direction: column;
 		}
 	}
+
 	@media (max-width: 300px) {
 		.hero__title h1 {
 			font-size: 1.2rem;
