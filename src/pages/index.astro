@@ -1,9 +1,9 @@
 ---
-import Hero from '../components/Hero.astro';
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import Hero from '../components/Hero.astro'
+import Layout from '../layouts/Layout.astro'
+import Card from '../components/BlogCard.astro'
 
-const allPosts = await Astro.glob('./posts/*.mdx');
+const allPosts = await Astro.glob('./blogs/*.mdx')
 ---
 
 <Layout title='Maaz | Developer'>
