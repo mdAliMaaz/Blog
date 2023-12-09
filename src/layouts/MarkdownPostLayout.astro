@@ -3,6 +3,7 @@ import '../styles/Blog.css'
 const { frontmatter } = Astro.props
 import Navbar from '../components/Navbar.astro'
 import Footer from '../components/Footer.astro'
+import { ViewTransitions } from 'astro:transitions'
 ---
 
 <!doctype html>
@@ -27,6 +28,7 @@ import Footer from '../components/Footer.astro'
 			content={Astro.generator}
 		/>
 		<title>{frontmatter.title}</title>
+		<ViewTransitions />
 	</head>
 	<body>
 		<Navbar />
@@ -42,31 +44,30 @@ import Footer from '../components/Footer.astro'
 			<slot />
 			<Footer />
 		</main>
+		<style>
+			main {
+				max-width: 40rem;
+				margin: 0 auto;
+				color: var(--text);
+				font-size: 1.1rem;
+				color: var(--text);
+				padding: 1rem 0.7rem;
+			}
+
+			.wrapper {
+				padding: 12rem 0 2rem 0;
+			}
+			.title {
+				font-size: 1.875;
+				color: var(--border);
+				font-weight: 500;
+				line-height: 1.2;
+			}
+			.description {
+				font-size: 1rem;
+				color: var(--text-secondary);
+				padding: 1rem 0 1rem 0;
+			}
+		</style>
 	</body>
 </html>
-
-<style>
-	main {
-		max-width: 40rem;
-		margin: 0 auto;
-		color: var(--text);
-		font-size: 1.1rem;
-		color: var(--text);
-		padding: 1rem 0.7rem;
-	}
-
-	.wrapper {
-		padding: 12rem 0 2rem 0;
-	}
-	.title {
-		font-size: 1.875;
-		color: var(--border);
-		font-weight: 500;
-		line-height: 1.2;
-	}
-	.description {
-		font-size: 1rem;
-		color: var(--text-secondary);
-		padding: 1rem 0 1rem 0;
-	}
-</style>
