@@ -1,0 +1,100 @@
+---
+layout: ../../layouts/MarkdownPostLayout.astro
+title: 'Objects: apply, call, bind'
+pubDate: 'September 29, 2023'
+description: 'How to use the apply(?), call(?), and bind(➰) methods in JavaScript'
+tags: ['javascript']
+---
+
+In this article, we’ll talk about the apply, call, and bind methods of the function prototype chain. They are some of the most important and often-used concepts in JavaScript and are very closely related to the this keyword.
+
+So, to get a grasp of the information in this article, first you have to be familiar with the concept and use of the this keyword.
+
+Suppose you have an object:
+
+```js
+const car = {
+	maker: 'Ford',
+	model: 'Fiesta',
+}
+```
+
+and you want to add a method to it:
+
+You could do it like this:
+
+```js
+car.drive = function () {
+	console.log(`Driving a ${this.maker} ${this.model} car!`)
+}
+```
+
+and that works.
+
+But suppose you want to have a function access the object properties:
+
+```js
+const drive = function () {
+	console.log(`Driving a ${this.maker} ${this.model} car!`)
+}
+
+drive()
+//Driving a undefined undefined car!
+```
+
+You can’t, because if you try to use this, it does not point to the object, as the function is defined outside of it.
+
+JavaScript offers the bind() method to map this to any object you want, in this case the car object, and it works like this:
+
+```js
+const drive = function () {
+	console.log(`Driving a ${this.maker} ${this.model} car!`)
+}.bind(car)
+
+drive()
+//Driving a Ford Fiesta car!
+```
+
+You could also use bind() on an existing object method to remap the value this points to:
+
+```js
+const car = {
+	maker: 'Ford',
+	model: 'Fiesta',
+
+	drive() {
+		console.log(`Driving a ${this.maker} ${this.model} car!`)
+	},
+}
+
+const anotherCar = {
+	maker: 'Audi',
+	model: 'A4',
+}
+
+car.drive.bind(anotherCar)()
+//Driving a Audi A4 car!
+```
+
+You can perform the same operation, but instead of doing so at the function definition time, you do it at the function invocation step, using call() or apply(),:
+
+```js
+const car = {
+	maker: 'Ford',
+	model: 'Fiesta',
+}
+
+const drive = function (kmh) {
+	console.log(`Driving a ${this.maker} ${this.model} car at ${kmh} km/h!`)
+}
+
+drive.call(car, 100)
+//Driving a Ford Fiesta car at 100 km/h!
+
+drive.apply(car, [100])
+//Driving a Ford Fiesta car at 100 km/h!
+```
+
+The first parameter you pass to call() or apply() is always bound to this.
+
+The difference between call() and apply() is just that the second one wants an array as the arguments list, while the first accepts a variable number of parameters, which passes as function arguments.
