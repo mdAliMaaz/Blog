@@ -1,0 +1,36 @@
+---
+layout: ../../layouts/MarkdownPostLayout.astro
+title: 'Browser events: Creating custom events'
+pubDate: 'October 11, 2023'
+description: 'How to create custom events in the browser'
+tags: ['javascript']
+---
+
+We all know how to react to **DOM** events such as clicks, mousemove, change, submit etc.
+But wait what if i want to create/add custom events , this is how you can do it
+
+## How to create custom events in the browser
+
+You can use the **`Event`** class which is provided by the browser, to create a new event, in this case the event named “hello”:
+
+```js
+const anEvent = new Event('hello')
+```
+
+Once you have the event, you can trigger the event using
+
+```js
+document.dispatchEvent(anEvent)
+```
+
+and when this happens, any event listener listening on that event “name” is triggered:
+
+```js
+document.addEventListener('hello', (event) => {
+	console.log('This is my custom event')
+})
+```
+
+Thats it , simple right 😊
+
+thanks for reading have a nice day
