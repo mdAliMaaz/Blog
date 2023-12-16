@@ -7,7 +7,7 @@ const { date, title, description, url } = Astro.props
 		<h3 class='card__title'>{title}</h3>
 		<div class='card__description'>
 			<span>{date}</span>
-			<span>{description.substring(0, 100)}...</span>
+			<p>{description}...</p>
 		</div>
 	</div>
 </a>
@@ -43,6 +43,12 @@ const { date, title, description, url } = Astro.props
 		color: var(--text-secondary);
 	}
 
+	.card__description > p {
+		display: -webkit-box;
+		overflow: hidden;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 2;
+	}
 	@media (max-width: 600px) {
 		.card__description {
 			flex-direction: column;

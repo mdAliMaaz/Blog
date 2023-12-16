@@ -1,0 +1,27 @@
+---
+layout: ../../layouts/MarkdownPostLayout.astro
+title: 'Confused about Stack and Heap?'
+date: 'September 30, 2023'
+description: 'I’ve always had a hard time keeping stack and heap apart. Yes, I’ve read about memory management and then memorized that objects allocated with new go on the heap. But I had to briefly think about whether the location is stack or heap.'
+tags: ['Networking']
+---
+
+# Confused about Stack and Heap?
+
+I’ve always had a hard time keeping stack and heap apart. Yes, I’ve read about memory management and then memorized that objects allocated with new keyword go on the heap. But I had to briefly think about whether the location is stack or heap.
+
+In Java or C#, value types (primitives) are stored on the stack, reference types on the heap. Memory allocation in terms of stack and heap is not specified in the C++ standard. Instead, the standard distinguishes automatic and dynamic storage duration. Local variables have automatic storage duration and compilers store them on the stack. Objects with dynamic memory allocation (created with new) are stored on the free store, conventionally referred to as the heap. In languages that are not garbage-collected, objects on the heap lead to memory leaks if they are not freed.
+
+![stack](https://miro.medium.com/v2/resize:fit:1100/format:webp/1*j2yvsVDI_HIsMg-UuePFfg.jpeg)
+
+When can we allocate objects on the stack? One important detail is that the stack for storing objects is the same as the run-time call stack. The run-time stack, consisting of stack frames, is responsible for program execution and function calls. A stack frame contains all the data for one function call: its parameters, the return address, and its local variables. Stack-allocated objects are part of these local variables. The return address determines which code is executed after the function returns.
+
+The stack frame only exists during the execution time of a function, and so do the objects on the stack frame. That has the advantage that we do not need to worry about memory leaks caused by stack-allocated objects — but the objects are also not available anymore once we return from the function.
+
+Only objects of fixed size known at compile time can be allocated on the stack\*. This way we know the size of a stack frame at compile time, and can access objects on the stack with fixed offsets relative to the stack pointer.
+
+![stack](https://miro.medium.com/v2/resize:fit:1100/format:webp/1*W7L7JN5q4p7w2E7HbBYS3g.jpeg)
+
+When can we allocate objects on the heap? You can think of the heap as extra storage completely independent of the run-time stack. It’s memory with no particular layout. Independent of program execution, we can ask for memory in this heap. When we allocate memory, the system makes sure that nothing else can use that same memory and invalidate our data. Objects on the heap live on after we exit the function that allocated the memory. This is good — but now it’s our responsibility to free memory on the heap, or we end up with memory leaks. In garbage-collected languages, the garbage collector frees memory on the heap and prevents memory leaks.
+
+_Stack and heap in the context of memory management have always been nebulous concepts to me. Understanding the run-time stack finally made it click._

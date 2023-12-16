@@ -1,7 +1,14 @@
 ---
+interface MarkdownFrontmatter {
+	date: number
+	title: string
+	description: string
+	tags: string[]
+}
+
 import Card from '../components/BlogCard.astro'
 import Layout from '../layouts/Layout.astro'
-const allPosts = await Astro.glob('./blogs/*.mdx')
+const allPosts = await Astro.glob<MarkdownFrontmatter>('./blogs/*.mdx')
 ---
 
 <Layout title='Maaz | Posts'>
@@ -12,7 +19,7 @@ const allPosts = await Astro.glob('./blogs/*.mdx')
 					title={item.frontmatter.title}
 					description={item.frontmatter.description}
 					url={item.url}
-					date={item.frontmatter.pubDate}
+					date={item.frontmatter.date}
 				/>
 			))
 		}

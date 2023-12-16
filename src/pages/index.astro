@@ -3,21 +3,32 @@ import Hero from '../components/Hero.astro'
 import Layout from '../layouts/Layout.astro'
 import Card from '../components/BlogCard.astro'
 
-const allPosts = await Astro.glob('./blogs/*.mdx')
+interface MarkdownFrontmatter {
+	date: number
+	title: string
+	description: string
+	tags: string[]
+}
+
+const allPosts = await Astro.glob<MarkdownFrontmatter>('./blogs/*.mdx')
+
+allPosts.sort((a, b) => a.frontmatter.date - b.frontmatter.date)
 ---
 
 <Layout title='Maaz | Developer'>
 	<Hero />
 	<div class='card__wrapper'>
 		{
-			allPosts.map((item) => (
-				<Card
-					title={item.frontmatter.title}
-					description={item.frontmatter.description}
-					url={item.url}
-					date={item.frontmatter.pubDate}
-				/>
-			))
+			allPosts
+				.sort((a, b) => b.frontmatter.date - a.frontmatter.date)
+				.map((item) => (
+					<Card
+						title={item.frontmatter.title}
+						description={item.frontmatter.description}
+						url={item.url}
+						date={item.frontmatter.date}
+					/>
+				))
 		}
 	</div>
 </Layout>

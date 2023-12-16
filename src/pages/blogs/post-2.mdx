@@ -1,9 +1,9 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
-title: "React Server Components - A New Paradigm"
-pubDate: "September 20, 2023"
-description: "Server components are the new way of writing React applications and it changes everything about React making it easier than ever to create complex applications. This article goes in depth into everything you need to know about server components."
-tags: ["React"]
+title: 'React Server Components - A New Paradigm'
+date: 'September 20, 2023'
+description: 'Server components are the new way of writing React applications and it changes everything about React making it easier than ever to create complex applications. This article goes in depth into everything you need to know about server components.'
+tags: ['React']
 ---
 
 import Tangent from '../../components/Tangent.astro'
@@ -18,41 +18,41 @@ The big thing that makes server component different than client components is th
 
 ```jsx
 function ClientComponent() {
-  const [data, setData] = useState(null)
-  const [loading, setLoading] = useState(true)
-  const [errr, setError] = useState(false)
+	const [data, setData] = useState(null)
+	const [loading, setLoading] = useState(true)
+	const [errr, setError] = useState(false)
 
-  useEffect(() => {
-    setLoading(true)
-    setData(undefined)
-    setError(false)
+	useEffect(() => {
+		setLoading(true)
+		setData(undefined)
+		setError(false)
 
-    const controller = new AbortController()
+		const controller = new AbortController()
 
-    fetch("/api/data", { signal: controller.signal })
-      .then(res => res.json())
-      .then(data => setData(data))
-      .catch(error => setError(true))
+		fetch('/api/data', { signal: controller.signal })
+			.then((res) => res.json())
+			.then((data) => setData(data))
+			.catch((error) => setError(true))
 
-    return () => controller.abort()
-  }, [])
+		return () => controller.abort()
+	}, [])
 
-  if (loading) return <p>Loading...</p>
-  if (error) return <p>Error</p>
+	if (loading) return <p>Loading...</p>
+	if (error) return <p>Error</p>
 
-  return <p>{data}</p>
+	return <p>{data}</p>
 }
 ```
 
 ```jsx
 async function ServerComponent() {
-  try {
-    const data = await fetch("/api/data").then(res => res.json())
-  } catch (error) {
-    return <p>Error</p>
-  }
+	try {
+		const data = await fetch('/api/data').then((res) => res.json())
+	} catch (error) {
+		return <p>Error</p>
+	}
 
-  return <p>{data}</p>
+	return <p>{data}</p>
 }
 ```
 
@@ -70,9 +70,9 @@ Since server components are run entirely on the server you can safely use secret
 
 ```jsx
 async function ServerComponent() {
-  const user = await db.users.find({ name: "John" })
+	const user = await db.users.find({ name: 'John' })
 
-  return <p>{user.name}</p>
+	return <p>{user.name}</p>
 }
 ```
 
@@ -88,10 +88,10 @@ Since all your code is run on the server it means you can cache data between req
 
 ```jsx
 async function ServerComponent() {
-  // Cache for 1 minute across all requests
-  const articles = await cache(db.articles.findAll, { timeSec: 60 })
+	// Cache for 1 minute across all requests
+	const articles = await cache(db.articles.findAll, { timeSec: 60 })
 
-  return <p>{articles.length}</p>
+	return <p>{articles.length}</p>
 }
 ```
 
@@ -119,35 +119,35 @@ This may sound like a deal breaker, but since you can easily nest normal client 
 
 ```jsx
 async function ServerComponent() {
-  const articles = await db.articles.findAll()
+	const articles = await db.articles.findAll()
 
-  return articles.map(article => <Article article={article} />)
+	return articles.map((article) => <Article article={article} />)
 }
 ```
 
 ```jsx
-"use client"
+'use client'
 
 // This is a normal client component so you can use hooks and event listeners
 function Article() {
-  const [likes, setLikes] = useState(0)
+	const [likes, setLikes] = useState(0)
 
-  return (
-    <div>
-      <p>{article.title}</p>
-      <p>{article.content}</p>
-      <button onClick={() => setLikes(l => l + 1)}>Like</button>
-      <p>{likes}</p>
-    </div>
-  )
+	return (
+		<div>
+			<p>{article.title}</p>
+			<p>{article.content}</p>
+			<button onClick={() => setLikes((l) => l + 1)}>Like</button>
+			<p>{likes}</p>
+		</div>
+	)
 }
 ```
 
 <Tangent>
-  You may have noticed the `"use client"` string at the top of the client
-  component file. This is a feature of Next.js specifically and is used to tell
-  Next.js that this file is a client component. Other frameworks may have
-  different ways of doing this, but the concept is the same.
+	You may have noticed the `"use client"` string at the top of the client
+	component file. This is a feature of Next.js specifically and is used to tell
+	Next.js that this file is a client component. Other frameworks may have
+	different ways of doing this, but the concept is the same.
 </Tangent>
 
 As you can see in the above code we are able to use server components to fetch our data and then use client components to add interactivity to that data. This is a very powerful pattern and makes it much easier to write complex applications.
@@ -162,21 +162,21 @@ Server components cannot be nested inside clients components. This is somewhat o
 
 ```jsx
 function ServerComponent() {
-  return <p>Hello Server</p>
+	return <p>Hello Server</p>
 }
 ```
 
 ```jsx
-"use client"
+'use client'
 
 function ClientComponent() {
-  return (
-    <div>
-      <p>Hello Client</p>
-      {/* This will not work */}
-      <ServerComponent />
-    </div>
-  )
+	return (
+		<div>
+			<p>Hello Client</p>
+			{/* This will not work */}
+			<ServerComponent />
+		</div>
+	)
 }
 ```
 
@@ -184,31 +184,31 @@ You can partially get around this problem (at least in Next.js) by passing the s
 
 ```jsx
 function ServerComponent() {
-  return <p>Hello Server</p>
+	return <p>Hello Server</p>
 }
 ```
 
 ```jsx
-"use client"
+'use client'
 
 function ClientComponent({ children }) {
-  return (
-    <div>
-      <p>Hello Client</p>
-      {children}
-    </div>
-  )
+	return (
+		<div>
+			<p>Hello Client</p>
+			{children}
+		</div>
+	)
 }
 ```
 
 ```jsx
 function AnotherServerComponent() {
-  return (
-    <ClientComponent>
-      {/* This will work */}
-      <ServerComponent />
-    </ClientComponent>
-  )
+	return (
+		<ClientComponent>
+			{/* This will work */}
+			<ServerComponent />
+		</ClientComponent>
+	)
 }
 ```
 
@@ -221,11 +221,11 @@ Server components are still very experimental and thus are not able to be used d
 In Next.js specifically all components you create are server components by default. In order to use a client component you must opt into it by adding the `"use client"` string at the top of the file.
 
 ```jsx
-"use client"
+'use client'
 
 // This is a client component
 function ClientComponent() {
-  return <p>Hello Client</p>
+	return <p>Hello Client</p>
 }
 ```
 
