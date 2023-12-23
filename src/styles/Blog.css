@@ -7,6 +7,7 @@
 	--text-shadow: hsl(333, 84%, 78%);
 	--font1: font1;
 	--font2: font2;
+	--tagent-bg: rgb(252, 24, 52, 0.2);
 }
 
 @font-face {
@@ -115,7 +116,25 @@ pre {
 	margin: 0.5rem;
 }
 
+.scroll-watcher {
+	height: 10px;
+	position: fixed;
+	top: 0;
+	z-index: 1000;
+	background-color: var(--border);
+	width: 100%;
+	scale: 0 1;
+	transform-origin: left;
+	animation: scroll-watcher linear;
+	animation-timeline: scroll();
+}
 
+
+@keyframes scroll-watcher {
+	to {
+		scale: 1 1;
+	}
+}
 
 @media (max-width: 50em) {
 	pre {
