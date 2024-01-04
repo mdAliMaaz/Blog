@@ -1,9 +1,10 @@
 ---
 import '../styles/Blog.css'
-const { frontmatter } = Astro.props
 import Navbar from '../components/Navbar.astro'
 import Footer from '../components/Footer.astro'
 import { ViewTransitions } from 'astro:transitions'
+import { formatDate } from '../utils'
+const { post } = Astro.props
 ---
 
 <!doctype html>
@@ -12,7 +13,7 @@ import { ViewTransitions } from 'astro:transitions'
 		<meta charset='UTF-8' />
 		<meta
 			name='description'
-			content={frontmatter.description}
+			content={post.data.description}
 		/>
 		<meta
 			name='viewport'
@@ -27,7 +28,7 @@ import { ViewTransitions } from 'astro:transitions'
 			name='generator'
 			content={Astro.generator}
 		/>
-		<title>{frontmatter.title}</title>
+		<title>{post.data.title}</title>
 		<ViewTransitions />
 	</head>
 	<body>
@@ -36,9 +37,9 @@ import { ViewTransitions } from 'astro:transitions'
 		<main>
 			<div class='wrapper'>
 				<div>
-					<h1 class='title'>{frontmatter.title}</h1>
+					<h1 class='title'>{post.data.title}</h1>
 					<div class='description'>
-						<span>{frontmatter.pubDate}</span>
+						<span>{formatDate(post.data.date)}</span>
 					</div>
 				</div>
 			</div>

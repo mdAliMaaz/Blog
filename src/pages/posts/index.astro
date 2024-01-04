@@ -1,9 +1,10 @@
 ---
-import Hero from '../components/Hero.astro'
-import Layout from '../layouts/Layout.astro'
-import Card from '../components/BlogCard.astro'
-import { getCollection, type CollectionEntry } from 'astro:content'
-import { formatDate } from '../utils'
+import Card from '../../components/BlogCard.astro'
+import Layout from '../../layouts/Layout.astro'
+import { getCollection } from 'astro:content'
+import type { CollectionEntry } from 'astro:content'
+import { formatDate } from '../../utils'
+import Filter from '../../components/filter/Filter'
 
 const allBlogs: CollectionEntry<'blog'>[] = (await getCollection('blog')).sort(
 	(a: CollectionEntry<'blog'>, b: CollectionEntry<'blog'>) =>
@@ -11,8 +12,7 @@ const allBlogs: CollectionEntry<'blog'>[] = (await getCollection('blog')).sort(
 )
 ---
 
-<Layout title='Maaz | Developer'>
-	<Hero />
+<Layout title='Maaz | Posts'>
 	<div class='card__wrapper'>
 		{
 			allBlogs.map((item) => (
@@ -29,6 +29,7 @@ const allBlogs: CollectionEntry<'blog'>[] = (await getCollection('blog')).sort(
 
 <style>
 	.card__wrapper {
+		margin-top: 12rem;
 		display: flex;
 		flex-direction: column;
 		gap: 1rem;

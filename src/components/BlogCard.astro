@@ -1,8 +1,8 @@
 ---
-const { date, title, description, url } = Astro.props
+const { date, title, description, slug } = Astro.props
 ---
 
-<a href={url}>
+<a href=`/posts/${slug}`>
 	<div class='container'>
 		<h3 class='card__title'>{title}</h3>
 		<div class='card__description'>

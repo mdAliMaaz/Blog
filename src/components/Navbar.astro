@@ -1,6 +1,6 @@
 ---
-import Logo from './Logo.astro';
-import Link from './Link.astro';
+import Logo from './Logo.astro'
+import Link from './Link.astro'
 ---
 
 <header id='navbar'>
@@ -74,14 +74,14 @@ import Link from './Link.astro';
 
 <script>
 	window.addEventListener('scroll', (e) => {
-		const navbar = document.getElementById('navbar');
+		const navbar = document.getElementById('navbar')
 
-		const scrollValue = Math.round(window.scrollY);
+		const scrollValue = Math.round(window.scrollY)
 
 		if (scrollValue > 250) {
-			navbar?.classList.add('show');
+			navbar?.classList.add('show')
 		} else {
-			navbar?.classList.remove('show');
+			navbar?.classList.remove('show')
 		}
-	});
+	})
 </script>
